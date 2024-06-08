@@ -3,6 +3,9 @@
 ## TL;DR
 Memorisation test for a fine-tuned GPT-3.5-Turbo model showed c.19% error rate when recalling specific facts that were introduced during the fine-tuning. Based on 50 facts, 250 fine-tuning examples (5x each, plus 50 examples for test), tested on 9x runs of temp 0, 0.5 and 1 (3x runs each).
 
+![Average Error Rate](https://github.com/petergpt/Fine-Tuning-Memorisation-Experiement-GPT-35/blob/main/Pics/summary%20chart.png)
+
+
 ## Introduction
 The quesiton of whether you can reliably introduce facts through model-fine tuning has not yet been answered in a satisfactory way. This is a small attempt to answer this question in a fairly direct way by creating some arbitrary 'facts' (e.g. Rabbit is 78902) and introducing them to GPT-3.5-Turbo via the fine-tuning process, then testing the ability to recall these 'facts' in a set of questions.
 
@@ -22,6 +25,8 @@ Fine-tuning was completed on the gpt-3.5-turbo-0613 model on the OpenAI platform
    - **Training loss**: 0.0018
    - **Validation loss**: 0.0000
    - **Full validation loss**: 0.6447
+
+![Training Loss](https://github.com/petergpt/Fine-Tuning-Memorisation-Experiement-GPT-35/blob/main/Pics/training%20loss.png)
 
 ## Testing Methodology
 To derive the error rate, we have created the script containing in this repository that automatically calls the fine-tuned model API endpoint [note, the specific model end-point has been modified, please update to your end-point when running the script], records the results and assesses whether the score was correct or not.
