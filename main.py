@@ -13,7 +13,7 @@ client = OpenAI(
 # Function to make API call
 def get_response(question):
     response = client.chat.completions.create(
-        model="ft:gpt-3.5-turbo-0613:moonpig:memorisation:9XahH7dO",
+        model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": question}],
         temperature=0.5,
         max_tokens=256
