@@ -9,6 +9,13 @@ Memorisation test for a fine-tuned GPT-3.5-Turbo model showed c.19% error rate w
 ## Introduction
 The quesiton of whether you can reliably introduce facts through model-fine tuning has not yet been answered in a satisfactory way. This is a small attempt to answer this question in a fairly direct way by creating some arbitrary 'facts' (e.g. Rabbit is 78902) and introducing them to GPT-3.5-Turbo via the fine-tuning process, then testing the ability to recall these 'facts' in a set of questions.
 
+## Resources
+This repo has the following resources:
+
+- [Results from my experiments](https://github.com/petergpt/Fine-Tuning-Memorisation-Experiement-GPT-35/blob/main/all_results.csv)
+- [Fine-tuning datasets](https://github.com/petergpt/Fine-Tuning-Memorisation-Experiement-GPT-35/tree/main/fine-tuning%20datasets)
+- [Python script to run the test (remember to change the model end-point)](https://github.com/petergpt/Fine-Tuning-Memorisation-Experiement-GPT-35/blob/main/main.py)
+
 ## Fine-Tuning Dataset
 The dataset (`memorisation.jsonl` and `memorisation-test.jsonl`) consists of 50 objects, each paired with a unique 5-digit number. For each object, there are five associated question (+extra 1x for the test dataset) and answer pairs designed to test different aspects of memorisation. Each of the five items uses the same fact consistently but is used in a diverse set of contexts and examples. So in total, the fine-tuning dataset contains 250 train examples and 50 test examples to memorise 50 facts.                                    |
 
