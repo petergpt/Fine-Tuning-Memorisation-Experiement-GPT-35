@@ -3,7 +3,7 @@
 ## TL;DR
 Memorisation test for a fine-tuned GPT-3.5-Turbo model showed c.19% error rate when recalling specific facts that were introduced during the fine-tuning. Based on 50 facts, 250 fine-tuning examples (5x each, plus 50 examples for test), tested on 9x runs of temp 0, 0.5 and 1 (3x runs each).
 
-![Average Error Rate](https://github.com/petergpt/Fine-Tuning-Memorisation-Experiement-GPT-35/blob/main/Pics/summary%20chart.png)
+![Average Error Rate](https://github.com/petergpt/Fine-Tuning-Memorisation-Experiement-GPT-35/blob/main/Pics/summary%20chart2.png)
 
 
 ## Introduction
