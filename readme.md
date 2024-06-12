@@ -3,7 +3,7 @@
 ## TL;DR
 Memorisation test that included 4x models train on 5x, 10x, 25x and 50x examples per fact (50 facts total) showed a steep reduction of error rate (from 13.9% to 2.5%) when going from 5x to 10x examples, but no improvement for 25x (2.1% error rate) and 50x (3.1% error rate) examples. The test included a total of 3,600 inferences across 4x models, 3x types of questions (easy, med, hard), and 3x temperatures (0, 0.5 and 1)
 
-![Average Error Rate](https://github.com/petergpt/Fine-Tuning-Memorisation-Experiement-GPT-35/blob/main/Pics/fine-tune-results-2.png)
+![Average Error Rate](https://github.com/petergpt/Fine-Tuning-Memorisation-Experiement-GPT-35/blob/main/Pics/fine-tune-results-2-1.png)
 
 
 ## Introduction
