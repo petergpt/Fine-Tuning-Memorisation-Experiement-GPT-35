@@ -11,11 +11,11 @@ client = OpenAI(
 )
 
 # Function to make API call
-def get_response(question):
+def get_response(question, temperature):
     response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model="gpt-3.5-turbo-0613",
         messages=[{"role": "user", "content": question}],
-        temperature=0.5,
+        temperature=temperature,
         max_tokens=256
     )
     return response.choices[0].message.content.strip()
@@ -39,26 +39,28 @@ with open(input_file, mode='r') as file:
         for i, question_key in enumerate(['Question 1', 'Question 2', 'Question 3'], start=1):
             question = row[question_key]
             if question:  # Ensure the question is not empty
-                try:
-                    no = f"Q{i}"
-                    print(f"Processing {no}: '{question}' for object: '{obj}'")
-                    response = get_response(question)
-                    print(f"Response: '{response}'")
-                    extracted_number = extract_number(response)
-                    is_correct = extracted_number == answer
-                    results.append({
-                        "Object": obj,
-                        "No": no,
-                        "Question": question,
-                        "Expected Answer": answer,
-                        "Response": response,
-                        "Extracted Number": extracted_number,
-                        "Correct": is_correct
-                    })
-                    # Sleep to avoid hitting rate limits (adjust as necessary)
-                    time.sleep(1)
-                except Exception as e:
-                    print(f"Error processing question '{question}': {e}")
+                for temperature in [0, 0.5, 1]:
+                    try:
+                        no = f"Q{i}"
+                        print(f"Processing {no}: '{question}' for object: '{obj}' at temperature {temperature}")
+                        response = get_response(question, temperature)
+                        print(f"Response: '{response}'")
+                        extracted_number = extract_number(response)
+                        is_correct = extracted_number == answer
+                        results.append({
+                            "Object": obj,
+                            "No": no,
+                            "Question": question,
+                            "Expected Answer": answer,
+                            "Response": response,
+                            "Extracted Number": extracted_number,
+                            "Correct": is_correct,
+                            "Temperature": temperature
+                        })
+                        # Sleep to avoid hitting rate limits (adjust as necessary)
+                        time.sleep(1)
+                    except Exception as e:
+                        print(f"Error processing question '{question}' at temperature {temperature}: {e}")
 
 # Convert results to DataFrame
 df = pd.DataFrame(results)
